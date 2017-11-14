@@ -1,18 +1,18 @@
 // import choo
-var choo = require('choo')
+const choo = require('choo')
 
 // import choo's template helper
-var html = require('choo/html')
-var viewVideo = require('./view-video.js')
-var fetchData = require('./fetch-data.js')
-var navigation = require('./navigation.js')
-var header = require('./header.js')
+const html = require('choo/html')
+const viewVideo = require('./view-video.js')
+const fetchData = require('./fetch-data.js')
+const navigation = require('./navigation.js')
+const header = require('./header.js')
 const about = require('./about.js')
 const css = require('./client.css')
 const store = require('./store.js')
 
 // initialize choo
-var app = choo()
+const app = choo()
 app.use(fetchData)
 app.use(store)
 
