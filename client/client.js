@@ -6,10 +6,10 @@ const html = require('choo/html')
 const viewVideo = require('./view-video.js')
 const fetchData = require('./fetch-data.js')
 const navigation = require('./navigation.js')
-const header = require('./header.js')
 const about = require('./about.js')
 const css = require('./client.css')
 const store = require('./store.js')
+const menu = require('./menu.js')
 
 // initialize choo
 const app = choo()
@@ -24,8 +24,12 @@ function mainView (state, emit) {
         <div class='grid'>
           <div class='header container-fluid'>
             <div class='row'>
-            ${header(state, emit)}
-            ${navigation(state, emit)}
+              <div class='col'>
+                ${menu(state, emit)}
+              </div>
+              <div class='col'>
+                ${navigation(state, emit)}
+              </div>
             </div>
             <div class='about row'>
               <div class='col'>

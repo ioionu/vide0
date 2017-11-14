@@ -675,7 +675,7 @@ function extend() {
 "use strict";
 
 
-var _templateObject = _taggedTemplateLiteral(['\n    <body>\n      <div class=\'app\'>\n        <div class=\'grid\'>\n          <div class=\'header container-fluid\'>\n            <div class=\'row\'>\n            ', '\n            ', '\n            </div>\n            <div class=\'about row\'>\n              <div class=\'col\'>\n               ', '\n              </div>\n            </div>\n          </div>\n          <div class=\'active-video row\'>\n            ', '\n          </div>\n        </div>\n      </div>\n    </body>\n  '], ['\n    <body>\n      <div class=\'app\'>\n        <div class=\'grid\'>\n          <div class=\'header container-fluid\'>\n            <div class=\'row\'>\n            ', '\n            ', '\n            </div>\n            <div class=\'about row\'>\n              <div class=\'col\'>\n               ', '\n              </div>\n            </div>\n          </div>\n          <div class=\'active-video row\'>\n            ', '\n          </div>\n        </div>\n      </div>\n    </body>\n  ']);
+var _templateObject = _taggedTemplateLiteral(['\n    <body>\n      <div class=\'app\'>\n        <div class=\'grid\'>\n          <div class=\'header container-fluid\'>\n            <div class=\'row\'>\n              <div class=\'col\'>\n                ', '\n              </div>\n              <div class=\'col\'>\n                ', '\n              </div>\n            </div>\n            <div class=\'about row\'>\n              <div class=\'col\'>\n               ', '\n              </div>\n            </div>\n          </div>\n          <div class=\'active-video row\'>\n            ', '\n          </div>\n        </div>\n      </div>\n    </body>\n  '], ['\n    <body>\n      <div class=\'app\'>\n        <div class=\'grid\'>\n          <div class=\'header container-fluid\'>\n            <div class=\'row\'>\n              <div class=\'col\'>\n                ', '\n              </div>\n              <div class=\'col\'>\n                ', '\n              </div>\n            </div>\n            <div class=\'about row\'>\n              <div class=\'col\'>\n               ', '\n              </div>\n            </div>\n          </div>\n          <div class=\'active-video row\'>\n            ', '\n          </div>\n        </div>\n      </div>\n    </body>\n  ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -687,10 +687,10 @@ var html = __webpack_require__(1);
 var viewVideo = __webpack_require__(32);
 var fetchData = __webpack_require__(33);
 var navigation = __webpack_require__(35);
-var header = __webpack_require__(36);
 var about = __webpack_require__(39);
 var css = __webpack_require__(40);
 var store = __webpack_require__(45);
+var menu = __webpack_require__(37);
 
 // initialize choo
 var app = choo();
@@ -699,7 +699,7 @@ app.use(store);
 
 function mainView(state, emit) {
 
-  return html(_templateObject, header(state, emit), navigation(state, emit), about(state, emit), viewVideo(state.video));
+  return html(_templateObject, menu(state, emit), navigation(state, emit), about(state, emit), viewVideo(state.video));
 }
 
 // start app
@@ -4015,23 +4015,7 @@ module.exports = function (state, emit) {
 };
 
 /***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _templateObject = _taggedTemplateLiteral(['<div class=\'col\'>', '</div>'], ['<div class=\'col\'>', '</div>']);
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var html = __webpack_require__(1);
-var menu = __webpack_require__(37);
-module.exports = function (state, emit) {
-  return html(_templateObject, menu(state, emit));
-};
-
-/***/ }),
+/* 36 */,
 /* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
