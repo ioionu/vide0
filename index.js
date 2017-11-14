@@ -23,8 +23,11 @@ const getTargetUrl = (query)=>{
   if (typeof query.r !== 'undefined') {
     r = query.r
   }
+
+  // validate that the past r is valid
   let url = feeds.find((feed)=>{return feed.r === r})
   if (typeof url === 'undefined') {
+    // if not use default
     return process.env.SOURCE
   }
   return url.url
