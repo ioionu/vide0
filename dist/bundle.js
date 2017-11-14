@@ -690,41 +690,12 @@ var navigation = __webpack_require__(35);
 var header = __webpack_require__(36);
 var about = __webpack_require__(39);
 var css = __webpack_require__(40);
-
-function videoStore(state, emitter) {
-  state.videos = [];
-  state.active = null;
-  state.video = null;
-  state.r = 'videos';
-  emitter.on('ingest', function (videos) {
-    for (var key in videos) {
-      console.log(videos[key]);
-    }
-    state.videos = videos;
-    emitter.emit('render');
-  });
-  emitter.on('start', function (e) {
-    state.active = 0;
-    state.video = state.videos[state.active];
-    emitter.emit('render');
-  });
-  emitter.on('showNext', function (e) {
-    state.active++;
-    state.video = state.videos[state.active];
-    emitter.emit('render');
-  });
-  emitter.on('showPrev', function (e) {
-    state.active--;
-    state.video = state.videos[state.active];
-    emitter.emit('render');
-  });
-  emitter.emit('fetch');
-}
+var store = __webpack_require__(45);
 
 // initialize choo
 var app = choo();
 app.use(fetchData);
-app.use(videoStore);
+app.use(store);
 
 function mainView(state, emit) {
 
@@ -4725,6 +4696,43 @@ module.exports = function (css) {
 	return fixedCss;
 };
 
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (state, emitter) {
+  state.videos = [];
+  state.active = null;
+  state.video = null;
+  state.r = 'videos';
+  emitter.on('ingest', function (videos) {
+    for (var key in videos) {
+      console.log(videos[key]);
+    }
+    state.videos = videos;
+    emitter.emit('render');
+  });
+  emitter.on('start', function (e) {
+    state.active = 0;
+    state.video = state.videos[state.active];
+    emitter.emit('render');
+  });
+  emitter.on('showNext', function (e) {
+    state.active++;
+    state.video = state.videos[state.active];
+    emitter.emit('render');
+  });
+  emitter.on('showPrev', function (e) {
+    state.active--;
+    state.video = state.videos[state.active];
+    emitter.emit('render');
+  });
+  emitter.emit('fetch');
+};
 
 /***/ })
 /******/ ]);
