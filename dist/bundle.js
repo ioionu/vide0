@@ -675,7 +675,7 @@ function extend() {
 "use strict";
 
 
-var _templateObject = _taggedTemplateLiteral(['\n    <body>\n      <div class=\'app\'>\n        <div class=\'grid\'>\n          <div class=\'header row\'>\n            ', '\n          </div>\n          <div class=\'active-video row\'>\n            ', '\n          </div>\n          <div class=\'navigation row\'>\n            ', '\n          </div>\n        </div>\n      </div>\n    </body>\n  '], ['\n    <body>\n      <div class=\'app\'>\n        <div class=\'grid\'>\n          <div class=\'header row\'>\n            ', '\n          </div>\n          <div class=\'active-video row\'>\n            ', '\n          </div>\n          <div class=\'navigation row\'>\n            ', '\n          </div>\n        </div>\n      </div>\n    </body>\n  ']);
+var _templateObject = _taggedTemplateLiteral(['\n    <body>\n      <div class=\'app\'>\n        <div class=\'grid\'>\n          <div class=\'header container-fluid\'>\n            <div class=\'row\'>\n            ', '\n            ', '\n            </div>\n            <div class=\'about row\'>\n              <div class=\'col\'>\n               ', '\n              </div>\n            </div>\n          </div>\n          <div class=\'active-video row\'>\n            ', '\n          </div>\n        </div>\n      </div>\n    </body>\n  '], ['\n    <body>\n      <div class=\'app\'>\n        <div class=\'grid\'>\n          <div class=\'header container-fluid\'>\n            <div class=\'row\'>\n            ', '\n            ', '\n            </div>\n            <div class=\'about row\'>\n              <div class=\'col\'>\n               ', '\n              </div>\n            </div>\n          </div>\n          <div class=\'active-video row\'>\n            ', '\n          </div>\n        </div>\n      </div>\n    </body>\n  ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -688,7 +688,8 @@ var viewVideo = __webpack_require__(32);
 var fetchData = __webpack_require__(33);
 var navigation = __webpack_require__(35);
 var header = __webpack_require__(36);
-var css = __webpack_require__(39);
+var about = __webpack_require__(39);
+var css = __webpack_require__(40);
 
 function videoStore(state, emitter) {
   state.videos = [];
@@ -727,9 +728,7 @@ app.use(videoStore);
 
 function mainView(state, emit) {
 
-  return html(_templateObject, header(state, emit), viewVideo(state.video), navigation(state, emit));
-
-  //emit('fetch')
+  return html(_templateObject, header(state, emit), navigation(state, emit), about(state, emit), viewVideo(state.video));
 }
 
 // start app
@@ -3439,7 +3438,7 @@ module.exports = function appendChild (el, childs) {
 
 
 var _templateObject = _taggedTemplateLiteral(['\n      <div class="col loading">loading...</div>\n    '], ['\n      <div class="col loading">loading...</div>\n    ']),
-    _templateObject2 = _taggedTemplateLiteral(['<div class="col">', '</div>'], ['<div class="col">', '</div>']),
+    _templateObject2 = _taggedTemplateLiteral(['<div class="col">\n    ', '\n  </div>'], ['<div class="col">\n    ', '\n  </div>']),
     _templateObject3 = _taggedTemplateLiteral(['<div class=\'iframe\'><iframe src="https://www.youtube-nocookie.com/embed/', '?rel=0" frameborder="0" allowfullscreen></iframe></div>'], ['<div class=\'iframe\'><iframe src="https://www.youtube-nocookie.com/embed/', '?rel=0" frameborder="0" allowfullscreen></iframe></div>']),
     _templateObject4 = _taggedTemplateLiteral(['<div class=\'iframe\'><iframe src="https://player.vimeo.com/video/', '" frameborder="0" allowfullscreen></iframe></div>'], ['<div class=\'iframe\'><iframe src="https://player.vimeo.com/video/', '" frameborder="0" allowfullscreen></iframe></div>']),
     _templateObject5 = _taggedTemplateLiteral(['<div class=\'iframe\'>\n        <iframe\n          width="100%"\n          height="300"\n          scrolling="no"\n          frameborder="no"\n          src="', '">\n          </iframe>\n        </div>'], ['<div class=\'iframe\'>\n        <iframe\n          width="100%"\n          height="300"\n          scrolling="no"\n          frameborder="no"\n          src="', '">\n          </iframe>\n        </div>']),
@@ -4011,8 +4010,8 @@ module.exports = function (state, emitter) {
 "use strict";
 
 
-var _templateObject = _taggedTemplateLiteral(['\n        <button\n          type="button"\n          class=\'btn btn-secondary\'\n          onclick=', '>\n          \u524D\n        </button>\n      '], ['\n        <button\n          type="button"\n          class=\'btn btn-secondary\'\n          onclick=', '>\n          \u524D\n        </button>\n      ']),
-    _templateObject2 = _taggedTemplateLiteral(['\n        <button\n          type="button"\n          class=\'btn btn-primary\'\n          onclick=', '>\n          \u6B21\n        </button>\n      '], ['\n        <button\n          type="button"\n          class=\'btn btn-primary\'\n          onclick=', '>\n          \u6B21\n        </button>\n      ']),
+var _templateObject = _taggedTemplateLiteral(['\n      <button\n        type="button"\n        class=\'btn btn-outline-secondary\'\n        onclick=', '\n        ', '>\n        \u524D\n      </button>\n    '], ['\n      <button\n        type="button"\n        class=\'btn btn-outline-secondary\'\n        onclick=', '\n        ', '>\n        \u524D\n      </button>\n    ']),
+    _templateObject2 = _taggedTemplateLiteral(['\n      <button\n        type="button"\n        class=\'btn btn-outline-primary\'\n        onclick=', '\n        ', '>\n        \u6B21\n      </button>\n    '], ['\n      <button\n        type="button"\n        class=\'btn btn-outline-primary\'\n        onclick=', '\n        ', '>\n        \u6B21\n      </button>\n    ']),
     _templateObject3 = _taggedTemplateLiteral(['\n  <div class=\'col\'>\n    ', '\n    ', '\n  </div>\n  '], ['\n  <div class=\'col\'>\n    ', '\n    ', '\n  </div>\n  ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -4025,7 +4024,6 @@ module.exports = function (state, emit) {
   }
 
   function showNext(e) {
-    console.log('nexxt was pressed');
     emit('showNext');
   }
   var showPrev = function showPrev(e) {
@@ -4033,15 +4031,13 @@ module.exports = function (state, emit) {
   };
 
   var prevButton = function prevButton() {
-    if (state.active > 0) {
-      return html(_templateObject, showPrev);
-    }
+    var disabled = state.active > 0 ? '' : 'disabled';
+    return html(_templateObject, showPrev, disabled);
   };
 
   var nextButton = function nextButton() {
-    if (state.active < state.videos.length) {
-      return html(_templateObject2, showNext);
-    }
+    var disabled = state.active + 1 < state.videos.length ? '' : 'disabled';
+    return html(_templateObject2, showNext, disabled);
   };
 
   return html(_templateObject3, prevButton(), nextButton());
@@ -4054,14 +4050,14 @@ module.exports = function (state, emit) {
 "use strict";
 
 
-var _templateObject = _taggedTemplateLiteral(['<div class=\'col\'>', ' | ', '/', ' | ', '</div>'], ['<div class=\'col\'>', ' | ', '/', ' | ', '</div>']);
+var _templateObject = _taggedTemplateLiteral(['<div class=\'col\'>', '</div>'], ['<div class=\'col\'>', '</div>']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 var html = __webpack_require__(1);
 var menu = __webpack_require__(37);
 module.exports = function (state, emit) {
-  return html(_templateObject, menu(state, emit), state.active + 1, state.videos.length, state.videos[state.active]);
+  return html(_templateObject, menu(state, emit));
 };
 
 /***/ }),
@@ -4071,8 +4067,8 @@ module.exports = function (state, emit) {
 "use strict";
 
 
-var _templateObject = _taggedTemplateLiteral(['<option value=\'', '\' ', '>', '</option>'], ['<option value=\'', '\' ', '>', '</option>']),
-    _templateObject2 = _taggedTemplateLiteral(['<select name=\'r\' onchange=', '>\n    ', '\n  </select>'], ['<select name=\'r\' onchange=', '>\n    ', '\n  </select>']);
+var _templateObject = _taggedTemplateLiteral(['<a onclick=\'', '\' class=\'dropdown-item\' href=\'#\'>', '</a>'], ['<a onclick=\'', '\' class=\'dropdown-item\' href=\'#\'>', '</a>']),
+    _templateObject2 = _taggedTemplateLiteral(['<div class=\'dropdown\'>\n    <button class=\'btn btn-secondary dropdown-toggle\' type=\'button\' id=\'dropdownMenuButton\' data-toggle=\'dropdown\' name=\'r\' onchange=}>\n      ', '\n    </button>\n    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">\n    ', '\n    </div>\n  </div>'], ['<div class=\'dropdown\'>\n    <button class=\'btn btn-secondary dropdown-toggle\' type=\'button\' id=\'dropdownMenuButton\' data-toggle=\'dropdown\' name=\'r\' onchange=}>\n      ', '\n    </button>\n    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">\n    ', '\n    </div>\n  </div>']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -4083,19 +4079,19 @@ module.exports = function (state, emit) {
   var getOptions = function getOptions() {
     return feeds.map(function (option) {
       var is_selected = option.r === state.r ? 'selected' : '';
-      return html(_templateObject, option.r, is_selected, option.name);
+      return html(_templateObject, function (e) {
+        handleClick(emit, option.r);
+      }, option.name);
     });
   };
 
-  var handleClick = function handleClick(emit, e) {
-    state.r = e.target.value;
+  var handleClick = function handleClick(emit, r) {
+    state.r = r;
     state.active = null;
     emit('fetch');
   };
 
-  return html(_templateObject2, function (e) {
-    handleClick(emit, e);
-  }, getOptions());
+  return html(_templateObject2, state.r, getOptions());
 };
 
 /***/ }),
@@ -4123,10 +4119,27 @@ module.exports = [{
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+var _templateObject = _taggedTemplateLiteral(['<span>\n    ', '/', ' : <a href=\'', '\' target=\'_blank\'>', '</a>\n  </span>'], ['<span>\n    ', '/', ' : <a href=\'', '\' target=\'_blank\'>', '</a>\n  </span>']);
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var html = __webpack_require__(1);
+
+module.exports = function (state, emit) {
+  return html(_templateObject, state.active + 1, state.videos.length, state.videos[state.active], state.videos[state.active]);
+};
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(40);
+var content = __webpack_require__(41);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -4134,14 +4147,14 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(42)(content, options);
+var update = __webpack_require__(43)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./client.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./client.css");
+		module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/postcss-loader/lib/index.js!./client.css", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/postcss-loader/lib/index.js!./client.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -4151,21 +4164,21 @@ if(false) {
 }
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(41)(undefined);
+exports = module.exports = __webpack_require__(42)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, "html, body {\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  margin: 0;\n  background-color: #555c73;\n}\n\n.app {\n  width: 100%;\n  height: 100%;\n  min-height: 100%;\n  max-height: 100%;\n}\n\n.app > .grid {\n  border: 1px solid pink;\n  width: 100%;\n  height: 100%;\n  min-height: 100%;\n  max-height: 100%;\n  display: flex;\n  flex-direction: column;\n\n}\n\n.app > .grid .row {\n  border: 1px solid red;\n}\n\n.app > .grid .active-video {\n  flex: 1 0 auto;\n}\n\n.app > .grid .header {\n  flex: 0 1 auto;\n}\n\n.app .navigation {\n  flex: 0 1 auto;\n}\n\n.active-video > div {\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 1px solid green;\n}\n  .active-video .iframe {\n    height: 66%;\n    width: 66%;\n    max-width: 66%;\n    max-height: 66%;\n    display: table-cell;\n  }\n  .active-video .img {\n    height: 66%;\n    width: 66%;\n    max-width: 66%;\n    max-height: 66%;\n    text-align: center;\n    overflow: hidden;\n  }\n\n  .active-video .video {\n    height: 66%;\n    width: 66%;\n    max-width: 66%;\n    max-height: 66%;\n    text-align: center;\n  }\n\n  .active-video iframe {\n    width: 100%;\n    height: 100%;\n    max-width: 100%;\n    max-height: 100%;\n    display: block;\n  }\n\n  .active-video img {\n    width: 100%;\n    height: 100%;\n    max-width: 100%;\n    max-height: 100%;\n  }\n\n  .active-video video {\n    max-width: 100%;\n    max-height: 100%;\n  }\n\n\n.navigation button {\n  width: 40%;\n  height: 75%;\n  margin: 0 1em;\n}\n", ""]);
+exports.push([module.i, "html, body {\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  margin: 0;\n  background-color: white;\n}\n\n.app {\n  width: 100%;\n  height: 100%;\n  min-height: 100%;\n  max-height: 100%;\n}\n\n.app > .grid {\n  width: 100%;\n  height: 100%;\n  min-height: 100%;\n  max-height: 100%;\n  display: block;\n\n}\n\n.app > .grid .row {\n\n}\n\n.app > .grid .active-video {\n  position: relative;\n  display: block;\n  width: 100%;\n  height: 100%;\n  vertical-align: middle;\n  text-align: center;\n}\n\n.app > .grid .header {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  z-index: 10;\n  text-align: center;\n}\n\n.active-video > div {\n  height: 75%;\n  width: 85%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n  .active-video .iframe {\n    width:100%;\n    height:100%;\n  }\n  .active-video .img {\n    height: 100%;\n    width: 100%;\n    max-width: 100%;\n    max-height: 100%;\n    text-align: center;\n    overflow: hidden;\n  }\n\n  .active-video .video {\n    height: 100%;\n    width: 100%;\n    max-width: 100%;\n    max-height: 100%;\n  }\n\n  .active-video iframe {\n    width: 100%;\n    height: 100%;\n    max-width: 100%;\n    max-height: 100%;\n    display: block;\n  }\n\n  .active-video img {\n    max-width: 100%;\n    max-height: 100%;\n    min-height: 100%;\n  }\n\n  .active-video video {\n    max-width: 100%;\n    max-height: 100%;\n  }\n\n\n.header {\n  padding: .5em 0;\n  font-size: 1em;\n  line-height: 3em;\n  font-family: sans-serif;\n  color: #666;\n}\n  .header a:link,\n  .header a:visited {\n    color: #666;\n  }\n\n  .header button,\n  .header select {\n    padding-left: 1em;\n    padding-right: 1em;\n    height: 100%;\n    margin: 0 1em;\n    font-size: 2em;\n  }\n\n  .header .about {\n    width: 100%;\n  }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports) {
 
 /*
@@ -4247,7 +4260,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -4303,7 +4316,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(43);
+var	fixUrls = __webpack_require__(44);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -4619,7 +4632,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports) {
 
 

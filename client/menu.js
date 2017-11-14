@@ -5,17 +5,22 @@ module.exports = (state, emit) => {
   const getOptions = ()=>{
     return feeds.map((option)=>{
       const is_selected = option.r === state.r ? 'selected' : ''
-      return html`<option value='${option.r}' ${is_selected}>${option.name}</option>`
+      return html`<a onclick='${(e)=>{handleClick(emit, option.r)}}' class='dropdown-item' href='#'>${option.name}</a>`
     })
   }
 
-  const handleClick = (emit, e)=>{
-    state.r = e.target.value
+  const handleClick = (emit, r)=>{
+    state.r = r
     state.active = null
     emit('fetch')
   }
 
-  return html`<select name='r' onchange=${(e)=>{handleClick(emit, e)}}>
+  return html`<div class='dropdown'>
+    <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' name='r' onchange=}>
+      ${state.r}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     ${getOptions()}
-  </select>`
+    </div>
+  </div>`
 }

@@ -6,7 +6,6 @@ module.exports = (state, emit) => {
   }
 
   function showNext(e) {
-    console.log('nexxt was pressed');
     emit('showNext')
   }
   const showPrev = (e)=>{
@@ -14,29 +13,29 @@ module.exports = (state, emit) => {
   }
 
   const prevButton = () => {
-    if (state.active > 0) {
-      return html`
-        <button
-          type="button"
-          class='btn btn-secondary'
-          onclick=${showPrev}>
-          前
-        </button>
-      `
-    }
+    const disabled = (state.active > 0) ? '' : 'disabled'
+    return html`
+      <button
+        type="button"
+        class='btn btn-outline-secondary'
+        onclick=${showPrev}
+        ${disabled}>
+        前
+      </button>
+    `
   }
 
   const nextButton = () => {
-    if (state.active < state.videos.length) {
-      return html`
-        <button
-          type="button"
-          class='btn btn-primary'
-          onclick=${showNext}>
-          次
-        </button>
-      `
-    }
+    const disabled = (state.active+1 < state.videos.length) ? '' : 'disabled'
+    return html`
+      <button
+        type="button"
+        class='btn btn-outline-primary'
+        onclick=${showNext}
+        ${disabled}>
+        次
+      </button>
+    `
   }
 
   return html`

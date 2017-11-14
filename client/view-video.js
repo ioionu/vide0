@@ -7,7 +7,9 @@ module.exports = (video) => {
     `
   }
   const code = parseVideo(video)
-  return html`<div class="col">${code.embed}</div>`
+  return html`<div class="col">
+    ${code.embed}
+  </div>`
 }
 
 function buildEmbed(platform, code) {

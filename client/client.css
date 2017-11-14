@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
-  background-color: #555c73;
+  background-color: white;
 }
 
 .app {
@@ -14,61 +14,62 @@ html, body {
 }
 
 .app > .grid {
-  border: 1px solid pink;
   width: 100%;
   height: 100%;
   min-height: 100%;
   max-height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: block;
 
 }
 
 .app > .grid .row {
-  border: 1px solid red;
+
 }
 
 .app > .grid .active-video {
-  flex: 1 0 auto;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .app > .grid .header {
-  flex: 0 1 auto;
-}
-
-.app .navigation {
-  flex: 0 1 auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  text-align: center;
 }
 
 .active-video > div {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid green;
+  height: 75%;
+  width: 85%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
   .active-video .iframe {
-    height: 66%;
-    width: 66%;
-    max-width: 66%;
-    max-height: 66%;
-    display: table-cell;
+    width:100%;
+    height:100%;
   }
   .active-video .img {
-    height: 66%;
-    width: 66%;
-    max-width: 66%;
-    max-height: 66%;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
     text-align: center;
     overflow: hidden;
   }
 
   .active-video .video {
-    height: 66%;
-    width: 66%;
-    max-width: 66%;
-    max-height: 66%;
-    text-align: center;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .active-video iframe {
@@ -80,10 +81,9 @@ html, body {
   }
 
   .active-video img {
-    width: 100%;
-    height: 100%;
     max-width: 100%;
     max-height: 100%;
+    min-height: 100%;
   }
 
   .active-video video {
@@ -92,8 +92,27 @@ html, body {
   }
 
 
-.navigation button {
-  width: 40%;
-  height: 75%;
-  margin: 0 1em;
+.header {
+  padding: .5em 0;
+  font-size: 1em;
+  line-height: 3em;
+  font-family: sans-serif;
+  color: #666;
 }
+  .header a:link,
+  .header a:visited {
+    color: #666;
+  }
+
+  .header button,
+  .header select {
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 100%;
+    margin: 0 1em;
+    font-size: 2em;
+  }
+
+  .header .about {
+    width: 100%;
+  }

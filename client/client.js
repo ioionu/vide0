@@ -7,6 +7,7 @@ var viewVideo = require('./view-video.js')
 var fetchData = require('./fetch-data.js')
 var navigation = require('./navigation.js')
 var header = require('./header.js')
+const about = require('./about.js')
 const css = require('./client.css')
 
 function videoStore (state, emitter) {
@@ -50,22 +51,24 @@ function mainView (state, emit) {
     <body>
       <div class='app'>
         <div class='grid'>
-          <div class='header row'>
+          <div class='header container-fluid'>
+            <div class='row'>
             ${header(state, emit)}
+            ${navigation(state, emit)}
+            </div>
+            <div class='about row'>
+              <div class='col'>
+               ${about(state, emit)}
+              </div>
+            </div>
           </div>
           <div class='active-video row'>
             ${viewVideo(state.video)}
-          </div>
-          <div class='navigation row'>
-            ${navigation(state, emit)}
           </div>
         </div>
       </div>
     </body>
   `
-
-
-  //emit('fetch')
 }
 
 // start app
