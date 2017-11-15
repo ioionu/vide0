@@ -3,11 +3,11 @@ const html = require('choo/html')
 module.exports = (video) => {
   if(video === null || typeof video === 'undefined') {
     return html`
-      <div class="col loading">loading...</div>
+      <div class="loading">loading...</div>
     `
   }
   const code = parseVideo(video)
-  return html`<div class="col">
+  return html`<div>
     ${code.embed}
   </div>`
 }
@@ -33,6 +33,12 @@ function buildEmbed(platform, code) {
       return html`<div class='video'><video controls><source src="${code}" type="video/mp4"></video></div>`
     case 'image':
       return html`<div class='img'><img src="${code}"/></div>`
+    case 'twitch':
+      return html`<div class='iframe'>
+        <iframe src="https://clips.twitch.tv/embed?clip=${code}&autoplay=false&tt_medium=clips_embed"
+          width="640" height="360" frameborder="0" scrolling="no" allowfullscreen="true">
+          </iframe>
+        </div>`
     case null:
       return html`<div class='loading'>Sorry i cant render that</div>`
     }
@@ -44,7 +50,7 @@ function parseVideo(video) {
   var parser = document.createElement('a');
   parser.href = video;
 
-  if (parser.hostname === 'www.youtube.com') {
+  if (parser.hostname === 'www.youtube.com' || parser.hostname === 'm.youtube.com') {
     code = parser.search.match(/v=([\w-]{10,12})/)
     code = code.length === 2 ? code[1] : null
   } else if (parser.hostname === 'youtu.be') {
@@ -61,6 +67,10 @@ function parseVideo(video) {
   } else if (parser.pathname.match(/\.gif|\.jpg|\.png/)) {
     platform = 'image'
     code = video
+  } else if (parser.hostname === 'clips.twitch.tv') {
+    platform = 'twitch'
+    code = parser.search.match(/clip\=(.+?)&/)
+    code = parser.pathname.substr(1, parser.pathname.length)
   } else {
     platform = null
     code = null

@@ -37,7 +37,7 @@ function mainView (state, emit) {
               </div>
             </div>
           </div>
-          <div class='active-video row'>
+          <div class='active-video'>
             ${viewVideo(state.video)}
           </div>
         </div>

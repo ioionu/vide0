@@ -19,7 +19,6 @@ html, body {
   min-height: 100%;
   max-height: 100%;
   display: block;
-
 }
 
 .app > .grid .row {
@@ -95,7 +94,7 @@ html, body {
 .header {
   padding: .5em 0;
   font-size: 1em;
-  line-height: 3em;
+  line-height: 1em;
   font-family: sans-serif;
   color: #666;
 }
@@ -106,12 +105,23 @@ html, body {
 
   .header button,
   .header select {
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: .5em;
+    padding-right: .5em;
     height: 100%;
-    margin: 0 1em;
-    font-size: 2em;
+    margin: 0 .2em;
+    font-size: 1em;
   }
+
+  @media (min-width: 576px) {
+    .header button,
+    .header select {
+      padding-left: 1em;
+      padding-right: 1em;
+      height: 100%;
+      font-size: 1.5em;
+    }
+  }
+
 
   .header .about {
     width: 100%;
