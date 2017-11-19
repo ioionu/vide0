@@ -39,7 +39,7 @@ module.exports = (state, emit) => {
   }
 
   return html`
-  <div class='col'>
+  <div>
     ${prevButton()}
     ${nextButton()}
   </div>

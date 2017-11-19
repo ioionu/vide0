@@ -22,23 +22,21 @@ function mainView (state, emit) {
     <body>
       <div class='app'>
         <div class='grid'>
-          <div class='header container-fluid'>
-            <div class='row'>
-              <div class='col'>
-                ${menu(state, emit)}
+          <div class='header'>
+            <div class="container">
+              <div class='row'>
+                <div class='col col-8'>
+                  ${menu(state, emit)}
+                  ${about(state, emit)}
+                </div>
+                <div class='col'>
+                  ${navigation(state, emit)}
+                </div>
               </div>
-              <div class='col'>
-                ${navigation(state, emit)}
-              </div>
-            </div>
-            <div class='about row'>
-              <div class='col'>
-               ${about(state, emit)}
-              </div>
-            </div>
+            </div><!-- /header -->
           </div>
           <div class='active-video'>
-            ${viewVideo(state.video)}
+            <div>${viewVideo.buildEmbed(state.video)}</div>
           </div>
         </div>
       </div>

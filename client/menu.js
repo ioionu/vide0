@@ -1,5 +1,6 @@
 const html = require('choo/html')
 const feeds = require('./feeds.js')
+const hamburger = require('svg-url-loader!./noun_25205_cc.svg')
 
 module.exports = (state, emit) => {
   const getOptions = ()=>{

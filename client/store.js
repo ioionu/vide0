@@ -1,3 +1,5 @@
+const viewVideo = require('./view-video.js')
+
 module.exports = (state, emitter) => {
   state.videos = []
   state.active = null
@@ -7,7 +9,15 @@ module.exports = (state, emitter) => {
     for(let key in videos) {
       console.log(videos[key]);
     }
-    state.videos = videos
+    const rendered = videos.map((video)=>{
+      return {
+        url: video,
+        data: viewVideo.parseVideo(video)
+      }
+    }).filter((video)=>{
+      return video.data !== null
+    })
+    state.videos = rendered;
     emitter.emit('render')
   })
   emitter.on('start', (e)=>{

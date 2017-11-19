@@ -43,6 +43,14 @@ html, body {
   text-align: center;
 }
 
+.app .row .col:first-child {
+  text-align: left;
+}
+
+.app .row .col:last-child {
+  text-align: right;
+}
+
 .active-video > div {
   height: 75%;
   width: 85%;
@@ -112,15 +120,54 @@ html, body {
     font-size: 1em;
   }
 
+  .header .dropdown,
+  .header h2 {
+    display: block;
+    float:left;
+  }
+
+  .header h2 {
+    max-width: 80%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+    .header h2 .mobile {
+      display: inline;
+    }
+    .header h2 .desktop {
+      display: none;
+    }
+
+  #dropdownMenuButton {
+    text-indent: -300px;
+    min-width: 2em;
+    background-image: url('./noun_25205_cc.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: white;
+    background-size: contain;
+  }
+
   @media (min-width: 576px) {
     .header button,
     .header select {
       padding-left: 1em;
       padding-right: 1em;
       height: 100%;
-      font-size: 1.5em;
+      font-size: 1.3em;
     }
-  }
+
+    .header h2 {
+      padding-top: .15em;
+    }
+    .header h2 .mobile {
+      display: none;
+    }
+    .header h2 .desktop {
+      display: inline;
+    }
+}
 
 
   .header .about {

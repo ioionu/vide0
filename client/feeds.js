@@ -14,5 +14,15 @@ module.exports =
         name: 'Aww',
         r: 'aww',
         url: 'https://www.reddit.com/r/aww/.rss'
+      },
+      {
+        name: 'NatureIsFuckingLit',
+        r: 'NatureIsFuckingLit',
+        url: 'https://www.reddit.com/r/NatureIsFuckingLit/.rss'
+      },
+      {
+        name: 'MEIRL',
+        r: 'meirl',
+        url: 'https://www.reddit.com/r/meirl/.rss'
       }
     ]
