@@ -53,7 +53,7 @@ module.exports = {
 
     if (parser.hostname === 'www.youtube.com' || parser.hostname === 'm.youtube.com') {
       code = parser.search.match(/v=([\w-]{10,12})/)
-      code = code.length === 2 ? code[1] : null
+      code = (code !== null && code.length === 2) ? code[1] : null
     } else if (parser.hostname === 'youtu.be') {
       code = parser.pathname.substr(1, parser.pathname.length)
     } else if (parser.hostname === 'vimeo.com') {
