@@ -18,7 +18,7 @@ module.exports = {
       case 'youtube':
         return html`<div class='iframe'><iframe src="https://www.youtube-nocookie.com/embed/${code}?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe></div>`
       case 'vimeo':
-        return html`<div class='iframe'><iframe src="https://player.vimeo.com/video/${code}" frameborder="0" allowfullscreen></iframe></div>`
+        return html`<div class='iframe'><iframe src="https://player.vimeo.com/video/${code}?autoplay=1" frameborder="0" allowfullscreen></iframe></div>`
       case 'soundcloud':
         const soundcloud_path = "https://w.soundcloud.com/player/?url=" + encodeURIComponent(code) + "&auto_play=false&buying=true&liking=true&download=true&sharing=true&show_artwork=true&show_comments=true&show_playcount=true&show_user=true&hide_related=false&visual=true&start_track=0&callback=true"
         return html`<div class='iframe'>
