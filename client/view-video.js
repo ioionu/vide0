@@ -33,7 +33,7 @@ module.exports = {
       case 'video':
         return html`<div class='video'><video controls><source src="${code}" type="video/mp4"></video></div>`
       case 'image':
-        return html`<div class='img'><img src="${code}"/></div>`
+        return html`<div class='img' id='${code}'><img src="${code}"/></div>`
       case 'twitch':
         return html`<div class='iframe'>
           <iframe src="https://clips.twitch.tv/embed?clip=${code}&autoplay=false&tt_medium=clips_embed"
