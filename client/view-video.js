@@ -16,7 +16,7 @@ module.exports = {
     const {platform, code} = video.data
     switch (platform) {
       case 'youtube':
-        return html`<div class='iframe'><iframe src="https://www.youtube-nocookie.com/embed/${code}?rel=0" frameborder="0" allowfullscreen></iframe></div>`
+        return html`<div class='iframe'><iframe src="https://www.youtube-nocookie.com/embed/${code}?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe></div>`
       case 'vimeo':
         return html`<div class='iframe'><iframe src="https://player.vimeo.com/video/${code}" frameborder="0" allowfullscreen></iframe></div>`
       case 'soundcloud':
@@ -31,7 +31,7 @@ module.exports = {
             </iframe>
           </div>`
       case 'video':
-        return html`<div class='video'><video controls><source src="${code}" type="video/mp4"></video></div>`
+        return html`<div class='video'><video controls autoplay><source src="${code}" type="video/mp4"></video></div>`
       case 'image':
         return html`<div class='img' id='${code}'><img src="${code}"/></div>`
       case 'twitch':
