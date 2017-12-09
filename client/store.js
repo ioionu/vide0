@@ -4,7 +4,7 @@ module.exports = (state, emitter) => {
   state.videos = []
   state.active = null
   state.video = null
-  state.autoplay = true
+  state.autoplay = false
   state.r = 'videos'
   emitter.on('ingest', (videos) => {
     for(let key in videos) {

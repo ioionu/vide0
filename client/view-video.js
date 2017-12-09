@@ -21,7 +21,7 @@ module.exports = {
         autoplayCode = autoplay ? '&autoplay=1' : ''
         return html`<div class='iframe'><iframe src="https://www.youtube-nocookie.com/embed/${code}?rel=0${autoplayCode}" frameborder="0" allowfullscreen></iframe></div>`
       case 'vimeo':
-        autoplayCode = autoplay ? '&autoplay=1' : ''
+        autoplayCode = autoplay ? '?autoplay=1' : ''
         return html`<div class='iframe'><iframe src="https://player.vimeo.com/video/${code}${autoplayCode}" frameborder="0" allowfullscreen></iframe></div>`
       case 'soundcloud':
         let soundcloud_path = "https://w.soundcloud.com/player/?url=" + encodeURIComponent(code) + "&auto_play=false&buying=true&liking=true&download=true&sharing=true&show_artwork=true&show_comments=true&show_playcount=true&show_user=true&hide_related=false&visual=true&start_track=0&callback=true"
@@ -63,7 +63,8 @@ module.exports = {
       code = parser.pathname.substr(1, parser.pathname.length)
     } else if (parser.hostname === 'vimeo.com') {
       platform = 'vimeo'
-      code = parser.pathname.substring(1, parser.pathname.length)
+      code = parser.pathname.split('/')
+      code = code[1]
     } else if (parser.hostname === 'soundcloud.com') {
       platform = 'soundcloud'
       code = 'https://soundcloud.com' + parser.pathname
