@@ -10,6 +10,11 @@ module.exports = (state, emit) => {
     })
   }
 
+  const getMoreOptions = () => {
+    const active = state.autoplay ? '[x]' : '[ ]'
+    return html`<a onclick='${(e) => {emit("toggleAutoplay")}}' class='dropdown-item' href='#'>${active} アート</a>`
+  }
+
   const handleClick = (emit, r)=>{
     state.r = r
     state.active = null
@@ -22,6 +27,8 @@ module.exports = (state, emit) => {
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     ${getOptions()}
+    <div class="dropdown-divider"></div>
+    ${getMoreOptions()}
     </div>
   </div>`
 }

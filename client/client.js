@@ -36,7 +36,7 @@ function mainView (state, emit) {
             </div><!-- /header -->
           </div>
           <div class='active-video'>
-            <div>${viewVideo.buildEmbed(state.video)}</div>
+            <div>${viewVideo.buildEmbed(state)}</div>
           </div>
         </div>
       </div>

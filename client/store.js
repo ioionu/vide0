@@ -4,6 +4,7 @@ module.exports = (state, emitter) => {
   state.videos = []
   state.active = null
   state.video = null
+  state.autoplay = true
   state.r = 'videos'
   emitter.on('ingest', (videos) => {
     for(let key in videos) {
@@ -17,7 +18,7 @@ module.exports = (state, emitter) => {
     }).filter((video)=>{
       return video.data !== null
     })
-    state.videos = rendered;
+    state.videos = rendered
     emitter.emit('render')
   })
   emitter.on('start', (e)=>{
@@ -34,6 +35,10 @@ module.exports = (state, emitter) => {
     state.active--
     state.video = state.videos[state.active]
     emitter.emit('render')
+  })
+  emitter.on('toggleAutoplay', (e) => {
+    state.autoplay = !state.autoplay
+    emitter.emit('render')    
   })
   emitter.emit('fetch')
 }

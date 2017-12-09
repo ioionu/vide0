@@ -11,16 +11,20 @@ module.exports = {
   //   </div>`
   // }
 
-  buildEmbed: (video) => {
-    if (video === null) {return null}
-    const {platform, code} = video.data
+  buildEmbed: (state) => {
+    if (state.video === null) {return null}
+    const {platform, code} = state.video.data
+    const autoplay = state.autoplay
+    let autoplayCode = ''
     switch (platform) {
       case 'youtube':
-        return html`<div class='iframe'><iframe src="https://www.youtube-nocookie.com/embed/${code}?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe></div>`
+        autoplayCode = autoplay ? '&autoplay=1' : ''
+        return html`<div class='iframe'><iframe src="https://www.youtube-nocookie.com/embed/${code}?rel=0${autoplayCode}" frameborder="0" allowfullscreen></iframe></div>`
       case 'vimeo':
-        return html`<div class='iframe'><iframe src="https://player.vimeo.com/video/${code}?autoplay=1" frameborder="0" allowfullscreen></iframe></div>`
+        autoplayCode = autoplay ? '&autoplay=1' : ''
+        return html`<div class='iframe'><iframe src="https://player.vimeo.com/video/${code}${autoplayCode}" frameborder="0" allowfullscreen></iframe></div>`
       case 'soundcloud':
-        const soundcloud_path = "https://w.soundcloud.com/player/?url=" + encodeURIComponent(code) + "&auto_play=false&buying=true&liking=true&download=true&sharing=true&show_artwork=true&show_comments=true&show_playcount=true&show_user=true&hide_related=false&visual=true&start_track=0&callback=true"
+        let soundcloud_path = "https://w.soundcloud.com/player/?url=" + encodeURIComponent(code) + "&auto_play=false&buying=true&liking=true&download=true&sharing=true&show_artwork=true&show_comments=true&show_playcount=true&show_user=true&hide_related=false&visual=true&start_track=0&callback=true"
         return html`<div class='iframe'>
           <iframe
             width="100%"
@@ -31,7 +35,8 @@ module.exports = {
             </iframe>
           </div>`
       case 'video':
-        return html`<div class='video'><video controls autoplay><source src="${code}" type="video/mp4"></video></div>`
+        autoplayCode = autoplay ? 'autoplay="true"' : ''
+        return html`<div class='video'><video controls='true' ${autoplayCode}><source src="${code}" type="video/mp4"></video></div>`
       case 'image':
         return html`<div class='img' id='${code}'><img src="${code}"/></div>`
       case 'twitch':

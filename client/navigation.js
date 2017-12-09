@@ -5,7 +5,7 @@ module.exports = (state, emit) => {
     emit('fetch')
   }
 
-  function showNext(e) {
+  const showNext = (e) => {
     emit('showNext')
   }
   const showPrev = (e)=>{
