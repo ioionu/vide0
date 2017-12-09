@@ -35,8 +35,7 @@ module.exports = {
             </iframe>
           </div>`
       case 'video':
-        autoplayCode = autoplay ? 'autoplay="true"' : ''
-        return html`<div class='video'><video controls='true' ${autoplayCode}><source src="${code}" type="video/mp4"></video></div>`
+        return html`<div class='video' id='${code}'><video controls='true' autoplay='${autoplay}'><source src="${code}" type="video/mp4"></video></div>`
       case 'image':
         return html`<div class='img' id='${code}'><img src="${code}"/></div>`
       case 'twitch':
