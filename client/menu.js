@@ -12,7 +12,7 @@ module.exports = (state, emit) => {
 
   const getMoreOptions = () => {
     const active = state.autoplay ? '[x]' : '[ ]'
-    return html`<a onclick='${(e) => {emit("toggleAutoplay")}}' class='dropdown-item' href='#'>${active} アート</a>`
+    return html`<a onclick='${(e) => {emit("toggleAutoplay")}}' class='dropdown-item' href='#'>${active} オートプレイ</a>`
   }
 
   const handleClick = (emit, r)=>{

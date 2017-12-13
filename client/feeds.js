@@ -24,5 +24,11 @@ module.exports =
         name: 'MEIRL',
         r: 'meirl',
         url: 'https://www.reddit.com/r/meirl/.rss'
+      },
+      {
+        name: 'RealLifeDoodles',
+        r: 'reallifedoodles',
+        url: 'https://www.reddit.com/r/reallifedoodles/.rss'
       }
+
     ]
