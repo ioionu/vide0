@@ -21,6 +21,11 @@ module.exports =
         url: 'https://www.reddit.com/r/NatureIsFuckingLit/.rss'
       },
       {
+        name: 'Documentaries',
+        r: 'documentaries',
+        url: 'https://www.reddit.com/r/documentaries/.rss'
+      },
+      {
         name: 'MEIRL',
         r: 'meirl',
         url: 'https://www.reddit.com/r/meirl/.rss'
