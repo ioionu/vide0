@@ -34,6 +34,26 @@ module.exports =
         name: 'RealLifeDoodles',
         r: 'reallifedoodles',
         url: 'https://www.reddit.com/r/reallifedoodles/.rss'
+      },
+      {
+        name: 'unknownvideos',
+        r: 'unknownvideos',
+        url: 'https://www.reddit.com/r/unknownvideos/.rss'
+      },
+      {
+        name: 'EducativeVideos',
+        r: 'EducativeVideos',
+        url: 'https://www.reddit.com/r/EducativeVideos/.rss'
+      },
+      {
+        name: 'youtubehaiku',
+        r: 'youtubehaiku',
+        url: 'https://www.reddit.com/r/youtubehaiku/.rss'
+      },
+      {
+        name: 'FullSkateVideos',
+        r: 'FullSkateVideos',
+        url: 'https://www.reddit.com/r/FullSkateVideos/.rss'
       }
 
     ]
