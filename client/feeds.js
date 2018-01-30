@@ -54,6 +54,11 @@ module.exports =
         name: 'FullSkateVideos',
         r: 'FullSkateVideos',
         url: 'https://www.reddit.com/r/FullSkateVideos/.rss'
+      },
+      {
+        name: 'Rollerblading',
+        r: 'rollerblading',
+        url: 'https://vd.reddit.com/r/rollerblading/.rss'
       }
 
     ]
