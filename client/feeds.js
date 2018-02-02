@@ -59,6 +59,10 @@ module.exports =
         name: 'Rollerblading',
         r: 'rollerblading',
         url: 'https://vd.reddit.com/r/rollerblading/.rss'
+      },
+      {
+        name: 'Graffiti',
+        r: 'graffiti',
+        url: 'https://www.reddit.com/r/Graffiti/.rss'
       }
-
     ]
