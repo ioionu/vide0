@@ -51,6 +51,11 @@ module.exports =
         url: 'https://www.reddit.com/r/youtubehaiku/.rss'
       },
       {
+        name: 'sk8',
+        r: 'skateboarding',
+        url: 'https://www.reddit.com/r/skateboarding/.rss'
+      },
+      {
         name: 'FullSkateVideos',
         r: 'FullSkateVideos',
         url: 'https://www.reddit.com/r/FullSkateVideos/.rss'
