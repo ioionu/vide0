@@ -16,19 +16,24 @@ module.exports =
         url: 'https://www.reddit.com/r/aww/.rss'
       },
       {
+        name: 'tippytaps',
+        r: 'tippytaps',
+        url: 'https://www.reddit.com/r/tippytaps/.rss'
+      },
+      {
+        name: 'HighQualityGifs',
+        r: 'HighQualityGifs',
+        url: 'https://www.reddit.com/r/HighQualityGifs/.rss'
+      },
+      {
+        name: 'natureismetal',
+        r: 'natureismetal',
+        url: 'https://www.reddit.com/r/natureismetal/.rss'
+      },
+      {
         name: 'NatureIsFuckingLit',
         r: 'NatureIsFuckingLit',
         url: 'https://www.reddit.com/r/NatureIsFuckingLit/.rss'
-      },
-      {
-        name: 'Documentaries',
-        r: 'documentaries',
-        url: 'https://www.reddit.com/r/documentaries/.rss'
-      },
-      {
-        name: 'MEIRL',
-        r: 'meirl',
-        url: 'https://www.reddit.com/r/meirl/.rss'
       },
       {
         name: 'RealLifeDoodles',
@@ -36,22 +41,7 @@ module.exports =
         url: 'https://www.reddit.com/r/reallifedoodles/.rss'
       },
       {
-        name: 'unknownvideos',
-        r: 'unknownvideos',
-        url: 'https://www.reddit.com/r/unknownvideos/.rss'
-      },
-      {
-        name: 'EducativeVideos',
-        r: 'EducativeVideos',
-        url: 'https://www.reddit.com/r/EducativeVideos/.rss'
-      },
-      {
-        name: 'youtubehaiku',
-        r: 'youtubehaiku',
-        url: 'https://www.reddit.com/r/youtubehaiku/.rss'
-      },
-      {
-        name: 'sk8',
+        name: 'skateboarding',
         r: 'skateboarding',
         url: 'https://www.reddit.com/r/skateboarding/.rss'
       },
